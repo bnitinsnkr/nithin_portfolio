@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Design tokens
+   The site is dark-first. Tokens live on :root so shadcn primitives resolve
+   against the same palette the Tailwind config exposes as named colours.
+   ========================================================================== */
+
+@layer base {
+  :root {
+    --background: 210 33% 3%; /* #05070A */
+    --foreground: 214 33% 94%; /* #E9EEF6 */
+
+    --card: 210 24% 6%;
+    --card-foreground: 214 33% 94%;
+
+    --popover: 213 23% 8%;
+    --popover-foreground: 214 33% 94%;
+
+    --primary: 205 100% 60%; /* electric */
+    --primary-foreground: 210 40% 4%;
+
+    --secondary: 213 21% 12%;
+    --secondary-foreground: 214 25% 88%;
+
+    --muted: 213 21% 11%;
+    --muted-foreground: 215 15% 62%;
+
+    --accent: 205 100% 60%;
+    --accent-foreground: 210 40% 4%;
+
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 214 33% 96%;
+
+    --border: 214 33% 94%; /* consumed at low alpha via border-line utilities */
+    --input: 213 21% 14%;
+    --ring: 205 100% 60%;
+
+    --radius: 0.875rem;
+
+    /* Motion + layout */
+    --header-height: 4.5rem;
+    --nav-blur: 18px;
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  /* Lenis owns the scroll once it mounts; native smooth scrolling would fight it. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  html.lenis {
+    scroll-behavior: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-void text-silver-bright antialiased;
+    font-feature-settings: 'ss01', 'cv01', 'cv11';
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.28);
+    color: #ffffff;
+  }
+
+  /* Visible, high-contrast focus for keyboard users only. */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #05070a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #232d39, #161d26);
+    border-radius: 999px;
+    border: 2px solid #05070a;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #33404f, #232d39);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Hide the native cursor only where a custom one is actually rendered. */
+  @media (hover: hover) and (pointer: fine) {
+    body[data-custom-cursor='true'],
+    body[data-custom-cursor='true'] * {
+      cursor: none;
+    }
+  }
+}
+
+/* ==========================================================================
+   Component-level primitives
+   ========================================================================== */
+
+@layer components {
+  /* Glass surfaces. Three depth planes, never all on the same z. */
+  .glass {
+    @apply relative rounded-2xl border border-line bg-white/[0.025] shadow-glass;
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+
+  .glass-raised {
+    @apply glass shadow-raised;
+    background:
+      linear-gradient(180deg, rgba(233, 238, 246, 0.05) 0%, rgba(233, 238, 246, 0.015) 100%),
+      rgba(11, 15, 20, 0.6);
+  }
+
+  .glass-floating {
+    @apply glass shadow-floating;
+    background:
+      linear-gradient(180deg, rgba(233, 238, 246, 0.07) 0%, rgba(233, 238, 246, 0.02) 100%),
+      rgba(16, 22, 31, 0.72);
+  }
+
+  /* Hairline highlight along the top edge — reads as a reflection, not a border. */
+  .edge-light::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(233, 238, 246, 0.28) 25%,
+      rgba(51, 165, 255, 0.4) 50%,
+      rgba(233, 238, 246, 0.28) 75%,
+      transparent
+    );
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .text-gradient {
+    @apply bg-silver-text bg-clip-text text-transparent;
+  }
+
+  .text-gradient-accent {
+    background: linear-gradient(120deg, #e9eef6 0%, #70c1ff 45%, #4cddf0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.24em] text-electric-300;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-line-strong to-transparent;
+  }
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+@layer utilities {
+  /* SVG-based grain. Adds tooth to flat gradients without shipping a texture. */
+  .noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(233, 238, 246, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(233, 238, 246, 0.045) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  .mask-radial {
+    -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 40%, #000 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 65% 55% at 50% 40%, #000 40%, transparent 100%);
+  }
+
+  /* Layered radial gradients — the cinematic base light for full-bleed sections. */
+  .aurora {
+    background-image:
+      radial-gradient(60rem 40rem at 15% -10%, rgba(51, 165, 255, 0.16), transparent 60%),
+      radial-gradient(48rem 34rem at 88% 8%, rgba(76, 221, 240, 0.1), transparent 62%),
+      radial-gradient(52rem 40rem at 50% 108%, rgba(51, 165, 255, 0.1), transparent 65%);
+  }
+
+  .gpu {
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Reduced motion — a global kill switch for anything decorative.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
