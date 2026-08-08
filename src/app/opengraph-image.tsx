@@ -22,8 +22,11 @@ export default async function OpenGraphImage() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: '72px',
-          background:
-            'radial-gradient(1000px 700px at 12% -12%, rgba(51,165,255,0.28), transparent 60%), radial-gradient(900px 600px at 92% 110%, rgba(76,221,240,0.18), transparent 62%), #05070A',
+          // Satori parses every layer of the `background` shorthand as an image,
+          // so the base colour has to be set separately.
+          backgroundColor: '#05070A',
+          backgroundImage:
+            'radial-gradient(1000px 700px at 12% -12%, rgba(51,165,255,0.28), transparent 60%), radial-gradient(900px 600px at 92% 110%, rgba(76,221,240,0.18), transparent 62%)',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
