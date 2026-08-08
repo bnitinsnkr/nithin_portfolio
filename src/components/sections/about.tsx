@@ -51,7 +51,7 @@ export function About() {
             <div className="card-floating edge-light relative overflow-hidden rounded-3xl">
               <div className="relative aspect-[4/5] overflow-hidden">
                 <Image
-                  src="https://placehold.co/720x900/0B0F14/33A5FF/png?text=Portrait"
+                  src="https://placehold.co/720x900/FFE3DB/C02F11/png?text=Portrait"
                   alt={`Portrait of ${SITE.name}`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 360px"

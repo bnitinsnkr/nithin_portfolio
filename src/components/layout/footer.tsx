@@ -91,7 +91,7 @@ export function Footer() {
             © {new Date().getFullYear()} {SITE.name}
           </p>
           <p className="font-mono text-[11px] tracking-[0.14em] text-ink-400">
-            Next.js · React Three Fiber · Vercel
+            Next.js · React · Tailwind CSS · Vercel
           </p>
         </div>
       </div>
