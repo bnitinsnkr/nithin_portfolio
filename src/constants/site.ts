@@ -8,7 +8,10 @@ export const SITE = {
   role: 'Generative AI · Applied AI · Machine Learning · Full Stack Java',
   description:
     'Generative AI, Applied AI and Machine Learning Engineer with 6+ years building enterprise RAG systems, NLP pipelines and secure Java/Python backends at American Express, ADP and LTIMindtree.',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nithinbahunadam.com',
+  // Trimmed: dashboard-pasted values pick up stray whitespace, and while
+  // `new URL()` strips it for metadataBase, sitemap/robots/JSON-LD interpolate
+  // this as a raw string and would emit an invalid URL.
+  url: process.env.NEXT_PUBLIC_SITE_URL?.trim() || 'https://nithinbahunadam.com',
   locale: 'en_US',
   location: 'Phoenix, Arizona, USA',
   availability: 'Open to Generative AI, Applied AI and Senior Full Stack roles',
