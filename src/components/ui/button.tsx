@@ -16,7 +16,7 @@ const buttonVariants = cva(
     'font-medium tracking-tight',
     'transition-[transform,box-shadow,background-color,border-color,color,opacity]',
     'duration-300 ease-spring',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric focus-visible:ring-offset-2 focus-visible:ring-offset-void',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2 focus-visible:ring-offset-paper',
     'disabled:pointer-events-none disabled:opacity-45',
     'active:scale-[0.975]',
     '[&_svg]:pointer-events-none [&_svg]:shrink-0',
@@ -25,14 +25,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'bg-electric text-navy-950 shadow-glow hover:bg-electric-300 hover:shadow-[0_0_0_1px_rgba(51,165,255,0.4),0_12px_40px_-8px_rgba(51,165,255,0.6)]',
+          'bg-coral-600 text-white shadow-glow hover:bg-coral-700 hover:shadow-[0_0_0_1px_rgba(255,90,54,0.4),0_12px_40px_-8px_rgba(255,90,54,0.6)]',
         secondary:
-          'border border-line bg-white/[0.04] text-silver-bright shadow-glass hover:border-line-strong hover:bg-white/[0.07]',
+          'border border-line bg-ink-50 text-ink-900 shadow-soft hover:border-line-strong hover:bg-ink-100',
         ghost:
-          'text-silver hover:bg-white/[0.05] hover:text-silver-bright',
+          'text-ink-600 hover:bg-ink-50 hover:text-ink-900',
         outline:
-          'border border-electric/35 bg-electric/[0.06] text-electric-200 hover:border-electric/60 hover:bg-electric/[0.12]',
-        link: 'h-auto rounded-none p-0 text-electric-300 underline-offset-4 hover:text-electric-200 hover:underline',
+          'border border-coral/35 bg-coral/[0.06] text-coral-700 hover:border-coral/60 hover:bg-coral/[0.12]',
+        link: 'h-auto rounded-none p-0 text-coral-600 underline-offset-4 hover:text-coral-700 hover:underline',
       },
       size: {
         sm: 'h-9 px-4 text-[13px] [&_svg]:size-4',

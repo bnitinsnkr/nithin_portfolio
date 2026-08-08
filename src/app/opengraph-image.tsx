@@ -24,9 +24,9 @@ export default async function OpenGraphImage() {
           padding: '72px',
           // Satori parses every layer of the `background` shorthand as an image,
           // so the base colour has to be set separately.
-          backgroundColor: '#05070A',
+          backgroundColor: '#FFFCF8',
           backgroundImage:
-            'radial-gradient(1000px 700px at 12% -12%, rgba(51,165,255,0.28), transparent 60%), radial-gradient(900px 600px at 92% 110%, rgba(76,221,240,0.18), transparent 62%)',
+            'radial-gradient(900px 620px at 8% -10%, rgba(255,90,54,0.22), transparent 62%), radial-gradient(820px 560px at 95% 108%, rgba(255,158,44,0.20), transparent 64%)',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
@@ -35,11 +35,11 @@ export default async function OpenGraphImage() {
               width: 44,
               height: 44,
               borderRadius: 999,
-              border: '1px solid rgba(233,238,246,0.18)',
+              border: '1px solid rgba(46,39,33,0.16)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              color: '#E9EEF6',
+              color: '#1A150F',
               fontSize: 17,
               letterSpacing: -0.6,
             }}
@@ -48,7 +48,7 @@ export default async function OpenGraphImage() {
           </div>
           <div
             style={{
-              color: '#70C1FF',
+              color: '#C02F11',
               fontSize: 17,
               letterSpacing: 4,
               textTransform: 'uppercase',
@@ -61,7 +61,7 @@ export default async function OpenGraphImage() {
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div
             style={{
-              color: '#FFFFFF',
+              color: '#1A150F',
               fontSize: 82,
               lineHeight: 1.02,
               letterSpacing: -3.4,
@@ -73,7 +73,7 @@ export default async function OpenGraphImage() {
           <div
             style={{
               marginTop: 22,
-              color: '#33A5FF',
+              color: '#E8401C',
               fontSize: 32,
               letterSpacing: -0.8,
               display: 'flex',
@@ -84,7 +84,7 @@ export default async function OpenGraphImage() {
           <div
             style={{
               marginTop: 26,
-              color: '#98A4B6',
+              color: '#5F544A',
               fontSize: 24,
               lineHeight: 1.45,
               maxWidth: 880,
@@ -100,9 +100,9 @@ export default async function OpenGraphImage() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            borderTop: '1px solid rgba(233,238,246,0.12)',
+            borderTop: '1px solid rgba(46,39,33,0.14)',
             paddingTop: 28,
-            color: '#78849A',
+            color: '#7E7265',
             fontSize: 21,
           }}
         >

@@ -34,7 +34,7 @@ export function SectionHeading({
       <div className={cn('max-w-2xl', align === 'center' && 'mx-auto text-center')}>
         <Reveal variants={fadeUp}>
           <span className="eyebrow">
-            <span aria-hidden className="size-1 rounded-full bg-electric shadow-glow-sm" />
+            <span aria-hidden className="size-1 rounded-full bg-coral" />
             {eyebrow}
           </span>
         </Reveal>
@@ -50,7 +50,7 @@ export function SectionHeading({
           <Reveal variants={fadeUp} delay={0.14}>
             <p
               className={cn(
-                'mt-5 text-[15px] leading-[1.75] text-silver-muted sm:text-base',
+                'mt-5 text-[15px] leading-[1.75] text-ink-500 sm:text-base',
                 align === 'center' && 'mx-auto',
               )}
             >

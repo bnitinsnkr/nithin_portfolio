@@ -12,7 +12,7 @@ const Card = React.forwardRef<
     ref={ref}
     className={cn(
       'edge-light relative overflow-hidden rounded-3xl',
-      elevation === 'floating' ? 'glass-floating' : 'glass-raised',
+      elevation === 'floating' ? 'card-floating' : 'card-raised',
       className,
     )}
     {...props}
@@ -31,7 +31,7 @@ const CardTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTML
   ({ className, ...props }, ref) => (
     <h3
       ref={ref}
-      className={cn('font-display text-xl tracking-[-0.02em] text-silver-bright', className)}
+      className={cn('font-display text-xl tracking-[-0.02em] text-ink-900', className)}
       {...props}
     />
   ),
@@ -42,7 +42,7 @@ const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn('text-sm leading-[1.7] text-silver-muted', className)} {...props} />
+  <p ref={ref} className={cn('text-sm leading-[1.7] text-ink-500', className)} {...props} />
 ));
 CardDescription.displayName = 'CardDescription';
 

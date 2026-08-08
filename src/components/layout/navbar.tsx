@@ -46,7 +46,7 @@ export function Navbar() {
         className={cn(
           'fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter,box-shadow] duration-500 ease-spring',
           scrolled
-            ? 'border-b border-line bg-void/70 shadow-glass backdrop-blur-xl'
+            ? 'border-b border-line bg-paper/70 shadow-soft backdrop-blur-xl'
             : 'border-b border-transparent bg-transparent',
         )}
       >
@@ -56,17 +56,17 @@ export function Navbar() {
         >
           <Link
             href="#hero"
-            className="group flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric"
+            className="group flex items-center gap-3 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral"
             aria-label={`${SITE.name} — back to top`}
           >
-            <span className="relative grid size-9 place-items-center rounded-full border border-line bg-white/[0.04] font-display text-[13px] tracking-[-0.02em] text-silver-bright transition-colors duration-300 ease-spring group-hover:border-electric/40">
+            <span className="relative grid size-9 place-items-center rounded-full border border-line bg-ink-50 font-display text-[13px] tracking-[-0.02em] text-ink-900 transition-colors duration-300 ease-spring group-hover:border-coral/40">
               {SITE.initials}
               <span
                 aria-hidden
-                className="absolute inset-0 rounded-full border border-electric/40 opacity-0 transition-opacity duration-300 ease-spring group-hover:opacity-100"
+                className="absolute inset-0 rounded-full border border-coral/40 opacity-0 transition-opacity duration-300 ease-spring group-hover:opacity-100"
               />
             </span>
-            <span className="hidden text-sm font-medium tracking-tight text-silver-bright sm:block">
+            <span className="hidden text-sm font-medium tracking-tight text-ink-900 sm:block">
               {SITE.shortName}
             </span>
           </Link>
@@ -83,14 +83,14 @@ export function Navbar() {
                     aria-current={isActive ? 'true' : undefined}
                     className={cn(
                       'relative rounded-full px-3.5 py-2 text-[13px] tracking-tight transition-colors duration-300 ease-spring',
-                      'hover:text-silver-bright focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric',
-                      isActive ? 'text-silver-bright' : 'text-silver-muted',
+                      'hover:text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral',
+                      isActive ? 'text-ink-900' : 'text-ink-500',
                     )}
                   >
                     {isActive ? (
                       <motion.span
                         layoutId="nav-pill"
-                        className="absolute inset-0 -z-10 rounded-full border border-line-strong bg-white/[0.06]"
+                        className="absolute inset-0 -z-10 rounded-full border border-line-strong bg-ink-100"
                         transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                       />
                     ) : null}
@@ -118,9 +118,9 @@ export function Navbar() {
               aria-controls="mobile-nav"
               aria-label={open ? 'Close menu' : 'Open menu'}
               className={cn(
-                'grid size-10 place-items-center rounded-full border border-line bg-white/[0.04] text-silver-bright lg:hidden',
+                'grid size-10 place-items-center rounded-full border border-line bg-ink-50 text-ink-900 lg:hidden',
                 'transition-[transform,border-color] duration-300 ease-spring active:scale-95 hover:border-line-strong',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral',
               )}
             >
               {open ? <X className="size-[18px]" /> : <Menu className="size-[18px]" />}
@@ -139,9 +139,9 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: EASE_SPRING }}
-            className="noise fixed inset-0 z-40 flex flex-col bg-void/95 pt-[var(--header-height)] backdrop-blur-2xl lg:hidden"
+            className="noise fixed inset-0 z-40 flex flex-col bg-paper/95 pt-[var(--header-height)] backdrop-blur-2xl lg:hidden"
           >
-            <div className="aurora pointer-events-none absolute inset-0 opacity-60" />
+            <div className="glow-wash pointer-events-none absolute inset-0 opacity-60" />
             <ul className="container relative flex flex-1 flex-col justify-center gap-1">
               {NAV_ITEMS.map((item, index) => (
                 <motion.li
@@ -153,12 +153,12 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="group flex items-baseline gap-4 border-b border-line py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric"
+                    className="group flex items-baseline gap-4 border-b border-line py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral"
                   >
-                    <span className="font-mono text-[11px] tracking-[0.2em] text-electric-400">
+                    <span className="font-mono text-[11px] tracking-[0.2em] text-coral-600">
                       {item.index}
                     </span>
-                    <span className="font-display text-2xl tracking-[-0.03em] text-silver-bright transition-transform duration-300 ease-spring group-hover:translate-x-1">
+                    <span className="font-display text-2xl tracking-[-0.03em] text-ink-900 transition-transform duration-300 ease-spring group-hover:translate-x-1">
                       {item.label}
                     </span>
                   </Link>

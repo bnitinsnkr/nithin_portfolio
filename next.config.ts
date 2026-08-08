@@ -3,10 +3,6 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
-  // three.js ships ESM-only sub-paths; transpiling keeps the R3F stack tree-shakeable
-  // and avoids duplicate three instances between server and client bundles.
-  transpilePackages: ['three'],
-
   experimental: {
     // Pull only the icon modules actually imported instead of the whole barrel file.
     optimizePackageImports: ['react-icons', 'lucide-react', 'framer-motion'],

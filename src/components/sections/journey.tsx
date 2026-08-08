@@ -15,9 +15,9 @@ import { cn } from '@/lib/utils';
 import type { ExperienceEntry } from '@/types';
 
 const ACCENT_RING: Record<ExperienceEntry['accent'], string> = {
-  electric: 'bg-electric shadow-[0_0_0_4px_rgba(51,165,255,0.16),0_0_22px_rgba(51,165,255,0.75)]',
-  cyan: 'bg-cyanide shadow-[0_0_0_4px_rgba(76,221,240,0.14),0_0_22px_rgba(76,221,240,0.7)]',
-  silver: 'bg-silver shadow-[0_0_0_4px_rgba(169,179,196,0.12),0_0_18px_rgba(169,179,196,0.55)]',
+  coral: 'bg-coral ring-4 ring-coral/15',
+  cyan: 'bg-amber ring-4 ring-amber/15',
+  silver: 'bg-ink-400 ring-4 ring-ink-400/15',
 };
 
 export function Journey() {
@@ -35,7 +35,7 @@ export function Journey() {
     <section id="journey" aria-label="Career journey" className="relative py-section">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(50rem_36rem_at_20%_10%,rgba(51,165,255,0.07),transparent_60%)]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(50rem_36rem_at_20%_10%,rgba(255,90,54,0.07),transparent_60%)]"
       />
 
       <div className="container">
@@ -52,7 +52,7 @@ export function Journey() {
             className="absolute left-[15px] top-2 h-full w-px bg-line md:left-1/2 md:-translate-x-1/2"
           >
             <motion.div
-              className="h-full w-full origin-top bg-gradient-to-b from-electric via-cyanide to-transparent"
+              className="h-full w-full origin-top bg-gradient-to-b from-coral via-amber to-transparent"
               style={{ scaleY: reducedMotion ? 1 : scaleY }}
             />
           </div>
@@ -97,7 +97,7 @@ function TimelineItem({ entry, index }: { entry: ExperienceEntry; index: number 
         >
           <article
             className={cn(
-              'glass-raised edge-light relative overflow-hidden rounded-3xl p-6 sm:p-7',
+              'card-raised edge-light relative overflow-hidden rounded-3xl p-6 sm:p-7',
               'transition-[transform,border-color,box-shadow] duration-500 ease-spring',
               'hover:-translate-y-1 hover:border-line-strong hover:shadow-floating',
             )}
@@ -114,7 +114,7 @@ function TimelineItem({ entry, index }: { entry: ExperienceEntry; index: number 
                 ) : null}
                 {entry.period}
               </Badge>
-              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-silver-dim">
+              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-400">
                 <MapPin aria-hidden className="size-3" />
                 {entry.location}
               </span>
@@ -123,15 +123,15 @@ function TimelineItem({ entry, index }: { entry: ExperienceEntry; index: number 
             <h3 className="mt-4 font-display text-2xl tracking-[-0.03em] text-gradient">
               {entry.company}
             </h3>
-            <p className="mt-1.5 text-sm font-medium tracking-tight text-electric-300">
+            <p className="mt-1.5 text-sm font-medium tracking-tight text-coral-600">
               {entry.role}
             </p>
-            <p className="mt-4 text-sm leading-[1.75] text-silver">{entry.headline}</p>
+            <p className="mt-4 text-sm leading-[1.75] text-ink-600">{entry.headline}</p>
 
             {entry.summary.map((paragraph) => (
               <p
                 key={paragraph.slice(0, 28)}
-                className="mt-3 text-[13px] leading-[1.8] text-silver-muted"
+                className="mt-3 text-[13px] leading-[1.8] text-ink-500"
               >
                 {paragraph}
               </p>
@@ -149,14 +149,14 @@ function TimelineItem({ entry, index }: { entry: ExperienceEntry; index: number 
                   <div key={metric.label}>
                     <dt className="sr-only">{metric.label}</dt>
                     <dd>
-                      <span className="font-display text-2xl tracking-[-0.03em] text-silver-bright">
+                      <span className="font-display text-2xl tracking-[-0.03em] text-ink-900">
                         <AnimatedCounter
                           value={metric.value}
                           prefix={metric.prefix}
                           suffix={metric.suffix}
                         />
                       </span>
-                      <span className="mt-1 block text-[11px] leading-snug text-silver-dim">
+                      <span className="mt-1 block text-[11px] leading-snug text-ink-400">
                         {metric.label}
                       </span>
                     </dd>
@@ -174,11 +174,11 @@ function TimelineItem({ entry, index }: { entry: ExperienceEntry; index: number 
                   aria-expanded={expanded}
                   aria-controls={panelId}
                   className={cn(
-                    'mt-6 inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.04] px-3.5 py-1.5',
-                    'font-mono text-[11px] uppercase tracking-[0.16em] text-silver-muted',
+                    'mt-6 inline-flex items-center gap-2 rounded-full border border-line bg-ink-50 px-3.5 py-1.5',
+                    'font-mono text-[11px] uppercase tracking-[0.16em] text-ink-500',
                     'transition-[color,border-color,transform] duration-300 ease-spring',
-                    'hover:border-electric/35 hover:text-electric-200 active:scale-[0.97]',
-                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric',
+                    'hover:border-coral/35 hover:text-coral-700 active:scale-[0.97]',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral',
                   )}
                 >
                   {expanded ? 'Hide detail' : `${entry.highlights.length} highlights`}
@@ -200,7 +200,7 @@ function TimelineItem({ entry, index }: { entry: ExperienceEntry; index: number 
                 >
                   <ul
                     className={cn(
-                      'mt-5 space-y-2.5 text-[13px] leading-[1.75] text-silver-muted',
+                      'mt-5 space-y-2.5 text-[13px] leading-[1.75] text-ink-500',
                       alignRight ? '' : 'md:text-right',
                     )}
                   >
@@ -214,7 +214,7 @@ function TimelineItem({ entry, index }: { entry: ExperienceEntry; index: number 
                       >
                         <span
                           aria-hidden
-                          className="mt-[0.55em] size-1 shrink-0 rounded-full bg-electric/60"
+                          className="mt-[0.55em] size-1 shrink-0 rounded-full bg-coral/60"
                         />
                         <span>{highlight}</span>
                       </li>
@@ -234,7 +234,7 @@ function TimelineItem({ entry, index }: { entry: ExperienceEntry; index: number 
               {entry.stack.map((tech) => (
                 <li
                   key={tech}
-                  className="rounded-md border border-line bg-white/[0.03] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-silver-dim transition-colors duration-300 ease-spring hover:border-electric/30 hover:text-electric-200"
+                  className="rounded-md border border-line bg-ink-50 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-400 transition-colors duration-300 ease-spring hover:border-coral/30 hover:text-coral-700"
                 >
                   {tech}
                 </li>

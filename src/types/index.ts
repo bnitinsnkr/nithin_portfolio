@@ -44,7 +44,7 @@ export interface ExperienceEntry {
   metrics: Metric[];
   stack: string[];
   /** Accent hue rotation so consecutive cards do not read identically. */
-  accent: 'electric' | 'cyan' | 'silver';
+  accent: 'coral' | 'cyan' | 'silver';
 }
 
 /* -------------------------------------------------------------------------- */

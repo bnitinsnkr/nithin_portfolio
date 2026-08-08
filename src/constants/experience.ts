@@ -17,7 +17,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
     period: 'Feb 2025 — Present',
     start: '2025-02',
     end: null,
-    accent: 'electric',
+    accent: 'coral',
     headline:
       'Building an internal Generative AI Knowledge Assistant on top of a secure enterprise Java platform.',
     summary: [

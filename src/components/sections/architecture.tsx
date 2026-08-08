@@ -51,11 +51,11 @@ function edgePath(from: ArchitectureNode, to: ArchitectureNode) {
 
 const TONE_STYLES: Record<ArchitectureNode['tone'], { fill: string; stroke: string; dot: string }> =
   {
-    entry: { fill: 'rgba(233,238,246,0.05)', stroke: 'rgba(233,238,246,0.20)', dot: '#c6ceda' },
-    compute: { fill: 'rgba(51,165,255,0.09)', stroke: 'rgba(51,165,255,0.36)', dot: '#33a5ff' },
-    data: { fill: 'rgba(76,221,240,0.08)', stroke: 'rgba(76,221,240,0.32)', dot: '#4cddf0' },
-    model: { fill: 'rgba(51,165,255,0.16)', stroke: 'rgba(51,165,255,0.55)', dot: '#70c1ff' },
-    ops: { fill: 'rgba(233,238,246,0.035)', stroke: 'rgba(233,238,246,0.14)', dot: '#78849a' },
+    entry: { fill: 'rgba(46,39,33,0.05)', stroke: 'rgba(46,39,33,0.20)', dot: '#A79A8C' },
+    compute: { fill: 'rgba(255,90,54,0.09)', stroke: 'rgba(255,90,54,0.36)', dot: '#FF5A36' },
+    data: { fill: 'rgba(255,158,44,0.08)', stroke: 'rgba(255,158,44,0.32)', dot: '#FF9E2C' },
+    model: { fill: 'rgba(255,90,54,0.16)', stroke: 'rgba(255,90,54,0.55)', dot: '#FF7A57' },
+    ops: { fill: 'rgba(46,39,33,0.035)', stroke: 'rgba(46,39,33,0.14)', dot: '#7E7265' },
   };
 
 /* -------------------------------------------------------------------------- */
@@ -94,16 +94,16 @@ export function Architecture() {
                   className={cn(
                     'relative rounded-full border px-4 py-2 text-[13px] tracking-tight',
                     'transition-[color,border-color,transform] duration-300 ease-spring active:scale-[0.98]',
-                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral',
                     isActive
-                      ? 'border-electric/50 text-silver-bright'
-                      : 'border-line text-silver-muted hover:border-line-strong hover:text-silver',
+                      ? 'border-coral/50 text-ink-900'
+                      : 'border-line text-ink-500 hover:border-line-strong hover:text-ink-600',
                   )}
                 >
                   {isActive ? (
                     <motion.span
                       layoutId="arch-tab"
-                      className="absolute inset-0 -z-10 rounded-full bg-electric/10"
+                      className="absolute inset-0 -z-10 rounded-full bg-coral/10"
                       transition={{ type: 'spring', stiffness: 360, damping: 30 }}
                     />
                   ) : null}
@@ -126,12 +126,12 @@ export function Architecture() {
             transition={{ duration: 0.45, ease: EASE_SPRING }}
             className="mt-8"
           >
-            <div className="glass-floating edge-light overflow-hidden rounded-3xl">
+            <div className="card-floating edge-light overflow-hidden rounded-3xl">
               <div className="border-b border-line px-6 py-5 sm:px-8">
-                <h3 className="font-display text-xl tracking-[-0.03em] text-silver-bright">
+                <h3 className="font-display text-xl tracking-[-0.03em] text-ink-900">
                   {active.title}
                 </h3>
-                <p className="mt-1.5 max-w-3xl text-[13px] leading-relaxed text-silver-muted">
+                <p className="mt-1.5 max-w-3xl text-[13px] leading-relaxed text-ink-500">
                   {active.caption}
                 </p>
               </div>
@@ -140,10 +140,10 @@ export function Architecture() {
 
               <ul className="grid gap-3 border-t border-line px-6 py-6 sm:grid-cols-3 sm:px-8">
                 {active.notes.map((note) => (
-                  <li key={note} className="flex gap-2.5 text-[12px] leading-[1.7] text-silver-muted">
+                  <li key={note} className="flex gap-2.5 text-[12px] leading-[1.7] text-ink-500">
                     <span
                       aria-hidden
-                      className="mt-[0.62em] size-1 shrink-0 rounded-full bg-electric/60"
+                      className="mt-[0.62em] size-1 shrink-0 rounded-full bg-coral/60"
                     />
                     <span>{note}</span>
                   </li>
@@ -181,9 +181,9 @@ function DiagramCanvas({ diagram }: { diagram: ArchitectureDiagram }) {
       >
         <defs>
           <linearGradient id={`edge-${diagram.id}`} x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#33a5ff" stopOpacity="0.15" />
-            <stop offset="50%" stopColor="#4cddf0" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#33a5ff" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="#FF5A36" stopOpacity="0.15" />
+            <stop offset="50%" stopColor="#FF9E2C" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="#FF5A36" stopOpacity="0.15" />
           </linearGradient>
         </defs>
 
@@ -204,7 +204,7 @@ function DiagramCanvas({ diagram }: { diagram: ArchitectureDiagram }) {
               <g key={`${edge.from}-${edge.to}`}>
                 <motion.path
                   d={path}
-                  stroke="rgba(233,238,246,0.13)"
+                  stroke="rgba(46,39,33,0.13)"
                   strokeWidth={1.25}
                   strokeDasharray={edge.async ? '4 6' : undefined}
                   initial={{ pathLength: 0, opacity: 0 }}
@@ -227,7 +227,7 @@ function DiagramCanvas({ diagram }: { diagram: ArchitectureDiagram }) {
                     x={midpoint.x}
                     y={midpoint.y - 9}
                     textAnchor="middle"
-                    className="fill-silver-dim font-mono"
+                    className="fill-ink-400 font-mono"
                     fontSize={10}
                     letterSpacing={1.1}
                   >
@@ -267,7 +267,7 @@ function DiagramCanvas({ diagram }: { diagram: ArchitectureDiagram }) {
                   x={x}
                   y={node.sub ? y - 1 : y + 4}
                   textAnchor="middle"
-                  className="fill-silver-bright"
+                  className="fill-ink-900"
                   fontSize={13}
                   fontWeight={500}
                   letterSpacing={-0.2}
@@ -279,7 +279,7 @@ function DiagramCanvas({ diagram }: { diagram: ArchitectureDiagram }) {
                     x={x}
                     y={y + 16}
                     textAnchor="middle"
-                    className="fill-silver-dim font-mono"
+                    className="fill-ink-400 font-mono"
                     fontSize={9.5}
                     letterSpacing={0.6}
                   >

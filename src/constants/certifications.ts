@@ -43,7 +43,7 @@ export const VENDOR_META: Record<
   { label: string; from: string; to: string }
 > = {
   aws: { label: 'AWS', from: 'rgba(255,153,0,0.22)', to: 'rgba(255,153,0,0)' },
-  azure: { label: 'Azure', from: 'rgba(51,165,255,0.26)', to: 'rgba(51,165,255,0)' },
+  azure: { label: 'Azure', from: 'rgba(255,90,54,0.26)', to: 'rgba(255,90,54,0)' },
   oracle: { label: 'Oracle', from: 'rgba(248,90,90,0.20)', to: 'rgba(248,90,90,0)' },
-  google: { label: 'Google', from: 'rgba(76,221,240,0.24)', to: 'rgba(76,221,240,0)' },
+  google: { label: 'Google', from: 'rgba(255,158,44,0.24)', to: 'rgba(255,158,44,0)' },
 };

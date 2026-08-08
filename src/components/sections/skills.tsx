@@ -46,14 +46,14 @@ function SkillCard({ category }: { category: SkillCategory }) {
       <div ref={ref} className="h-full">
         <SpotlightCard className="flex h-full flex-col p-6">
         <div className="flex items-start gap-3.5">
-          <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-line bg-electric/[0.08] text-electric-300 shadow-glow-sm">
+          <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-line bg-coral/[0.08] text-coral-600">
             <Icon aria-hidden className="size-[18px]" />
           </span>
           <div className="min-w-0">
-            <h3 className="font-display text-lg tracking-[-0.025em] text-silver-bright">
+            <h3 className="font-display text-lg tracking-[-0.025em] text-ink-900">
               {category.title}
             </h3>
-            <p className="mt-0.5 text-[12px] leading-snug text-silver-dim">{category.caption}</p>
+            <p className="mt-0.5 text-[12px] leading-snug text-ink-400">{category.caption}</p>
           </div>
         </div>
 
@@ -61,10 +61,10 @@ function SkillCard({ category }: { category: SkillCategory }) {
           {category.skills.map((skill, index) => (
             <li key={skill.name}>
               <div className="flex items-baseline justify-between gap-3">
-                <span className="truncate text-[13px] text-silver">{skill.name}</span>
+                <span className="truncate text-[13px] text-ink-600">{skill.name}</span>
                 <span
                   aria-hidden
-                  className="shrink-0 font-mono text-[10px] tabular-nums tracking-[0.1em] text-silver-dim"
+                  className="shrink-0 font-mono text-[10px] tabular-nums tracking-[0.1em] text-ink-400"
                 >
                   {skill.level}
                 </span>
@@ -76,10 +76,10 @@ function SkillCard({ category }: { category: SkillCategory }) {
                 aria-valuemin={0}
                 aria-valuemax={100}
                 aria-label={`${skill.name} proficiency`}
-                className="relative mt-1.5 h-[3px] w-full overflow-hidden rounded-full bg-white/[0.07]"
+                className="relative mt-1.5 h-[3px] w-full overflow-hidden rounded-full bg-ink-100"
               >
                 <motion.span
-                  className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-electric-500 via-electric to-cyanide"
+                  className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-coral-600 via-coral to-amber"
                   initial={{ width: 0 }}
                   animate={inView || reducedMotion ? { width: `${skill.level}%` } : { width: 0 }}
                   transition={{

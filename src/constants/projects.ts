@@ -2,7 +2,7 @@ import { SITE } from '@/constants/site';
 import type { Project } from '@/types';
 
 const placeholder = (label: string) =>
-  `https://placehold.co/1280x800/0B0F14/33A5FF/png?text=${encodeURIComponent(label)}`;
+  `https://placehold.co/1280x800/FFE3DB/C02F11/png?text=${encodeURIComponent(label)}`;
 
 /**
  * Featured work.
@@ -167,7 +167,7 @@ export const PROJECTS: Project[] = [
       { value: 94, suffix: '%', label: 'Fraud detection precision' },
       { value: 20, suffix: '%', label: 'Reduction in false positives' },
     ],
-    image: placeholder('Financial Risk %26 Fraud Detection'),
+    image: placeholder('Financial Risk & Fraud Detection'),
     links: { github: SITE.socials.github },
   },
   {

@@ -13,26 +13,26 @@ const SOCIALS = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-line bg-void">
+    <footer className="relative border-t border-line bg-paper">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-electric/40 to-transparent"
+        className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-coral/40 to-transparent"
       />
 
       <div className="container py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <p className="font-display text-2xl tracking-[-0.03em] text-gradient">{SITE.name}</p>
-            <p className="mt-3 max-w-sm text-sm leading-[1.75] text-silver-muted">
+            <p className="mt-3 max-w-sm text-sm leading-[1.75] text-ink-500">
               Building grounded, evaluated AI systems on top of secure enterprise engineering.
             </p>
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-silver-dim">
+            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-400">
               {SITE.location}
             </p>
           </div>
 
           <nav aria-label="Footer">
-            <h2 className="font-mono text-[11px] uppercase tracking-[0.24em] text-silver-dim">
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.24em] text-ink-400">
               Sections
             </h2>
             <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-2.5 lg:grid-cols-1">
@@ -40,7 +40,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-silver-muted transition-colors duration-300 ease-spring hover:text-silver-bright"
+                    className="text-sm text-ink-500 transition-colors duration-300 ease-spring hover:text-ink-900"
                   >
                     {item.label}
                   </Link>
@@ -50,7 +50,7 @@ export function Footer() {
           </nav>
 
           <div>
-            <h2 className="font-mono text-[11px] uppercase tracking-[0.24em] text-silver-dim">
+            <h2 className="font-mono text-[11px] uppercase tracking-[0.24em] text-ink-400">
               Elsewhere
             </h2>
             <ul className="mt-5 space-y-2.5">
@@ -60,9 +60,9 @@ export function Footer() {
                     href={href}
                     target={href.startsWith('http') ? '_blank' : undefined}
                     rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="group inline-flex items-center gap-2.5 text-sm text-silver-muted transition-colors duration-300 ease-spring hover:text-silver-bright"
+                    className="group inline-flex items-center gap-2.5 text-sm text-ink-500 transition-colors duration-300 ease-spring hover:text-ink-900"
                   >
-                    <Icon aria-hidden className="size-4 text-electric-400" />
+                    <Icon aria-hidden className="size-4 text-coral-600" />
                     {label}
                     <ArrowUpRight
                       aria-hidden
@@ -75,7 +75,7 @@ export function Footer() {
                 <a
                   href={SITE.resumePath}
                   download={SITE.resumeFileName}
-                  className="inline-flex items-center gap-2.5 text-sm text-silver-muted transition-colors duration-300 ease-spring hover:text-silver-bright"
+                  className="inline-flex items-center gap-2.5 text-sm text-ink-500 transition-colors duration-300 ease-spring hover:text-ink-900"
                 >
                   Resume (PDF)
                 </a>
@@ -87,10 +87,10 @@ export function Footer() {
         <div className="hairline mt-14" />
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-[11px] tracking-[0.14em] text-silver-dim">
+          <p className="font-mono text-[11px] tracking-[0.14em] text-ink-400">
             © {new Date().getFullYear()} {SITE.name}
           </p>
-          <p className="font-mono text-[11px] tracking-[0.14em] text-silver-dim">
+          <p className="font-mono text-[11px] tracking-[0.14em] text-ink-400">
             Next.js · React Three Fiber · Vercel
           </p>
         </div>

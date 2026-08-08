@@ -77,7 +77,7 @@ export function Contact() {
   return (
     <section id="contact" aria-label="Contact" className="relative py-section">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="aurora absolute inset-0 opacity-80" />
+        <div className="glow-wash absolute inset-0 opacity-80" />
       </div>
 
       <div className="container">
@@ -93,7 +93,7 @@ export function Contact() {
             <form
               onSubmit={handleSubmit(onSubmit)}
               noValidate
-              className="glass-floating edge-light relative rounded-3xl p-7 sm:p-9"
+              className="card-floating edge-light relative rounded-3xl p-7 sm:p-9"
             >
               {/* Honeypot — real people never see it, bots fill it in. */}
               <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
@@ -159,11 +159,11 @@ export function Contact() {
                   </Button>
                 </Magnetic>
 
-                <p className="text-[12px] text-silver-dim">
+                <p className="text-[12px] text-ink-400">
                   Or email{' '}
                   <a
                     href={`mailto:${SITE.email}`}
-                    className="text-electric-300 underline-offset-4 transition-colors duration-300 ease-spring hover:text-electric-200 hover:underline"
+                    className="text-coral-600 underline-offset-4 transition-colors duration-300 ease-spring hover:text-coral-700 hover:underline"
                   >
                     {SITE.email}
                   </a>
@@ -175,8 +175,8 @@ export function Contact() {
           {/* Details */}
           <Reveal variants={slideInRight}>
             <div className="flex h-full flex-col gap-5">
-              <div className="glass-raised edge-light rounded-3xl p-6">
-                <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-silver-dim">
+              <div className="card-raised edge-light rounded-3xl p-6">
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-400">
                   Direct channels
                 </h3>
                 <ul className="mt-5 space-y-4">
@@ -186,16 +186,16 @@ export function Contact() {
                         href={href}
                         target={href.startsWith('http') ? '_blank' : undefined}
                         rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="group flex items-center gap-3.5 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric"
+                        className="group flex items-center gap-3.5 rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral"
                       >
-                        <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-line bg-white/[0.04] text-electric-300 transition-[border-color,transform] duration-300 ease-spring group-hover:-translate-y-0.5 group-hover:border-electric/40">
+                        <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-line bg-ink-50 text-coral-600 transition-[border-color,transform] duration-300 ease-spring group-hover:-translate-y-0.5 group-hover:border-coral/40">
                           <Icon aria-hidden className="size-4" />
                         </span>
                         <span className="min-w-0">
-                          <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-silver-dim">
+                          <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-ink-400">
                             {label}
                           </span>
-                          <span className="block truncate text-sm text-silver-bright">{value}</span>
+                          <span className="block truncate text-sm text-ink-900">{value}</span>
                         </span>
                       </a>
                     </li>
@@ -203,29 +203,29 @@ export function Contact() {
                 </ul>
               </div>
 
-              <div className="glass-raised edge-light rounded-3xl p-6">
-                <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-silver-dim">
+              <div className="card-raised edge-light rounded-3xl p-6">
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-400">
                   Availability
                 </h3>
-                <p className="mt-4 flex items-start gap-2.5 text-sm leading-relaxed text-silver">
+                <p className="mt-4 flex items-start gap-2.5 text-sm leading-relaxed text-ink-600">
                   <span className="relative mt-[0.45em] flex size-1.5 shrink-0">
-                    <span className="absolute inline-flex size-full animate-pulse-ring rounded-full bg-electric" />
-                    <span className="relative inline-flex size-1.5 rounded-full bg-electric" />
+                    <span className="absolute inline-flex size-full animate-pulse-ring rounded-full bg-coral" />
+                    <span className="relative inline-flex size-1.5 rounded-full bg-coral" />
                   </span>
                   {SITE.availability}
                 </p>
-                <p className="mt-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-silver-dim">
-                  <MapPin aria-hidden className="size-3.5 text-electric-400" />
+                <p className="mt-4 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-400">
+                  <MapPin aria-hidden className="size-3.5 text-coral-600" />
                   {SITE.location}
                 </p>
               </div>
 
-              <div className="glass-raised edge-light flex flex-1 flex-col justify-between gap-5 rounded-3xl p-6">
+              <div className="card-raised edge-light flex flex-1 flex-col justify-between gap-5 rounded-3xl p-6">
                 <div>
-                  <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-silver-dim">
+                  <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-400">
                     Résumé
                   </h3>
-                  <p className="mt-3 text-[13px] leading-relaxed text-silver-muted">
+                  <p className="mt-3 text-[13px] leading-relaxed text-ink-500">
                     Full experience, project detail and the complete technology list — one page,
                     PDF.
                   </p>

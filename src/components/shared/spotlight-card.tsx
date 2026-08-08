@@ -46,7 +46,7 @@ export function SpotlightCard({
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       className={cn(
-        'glass-raised edge-light group/spot relative isolate overflow-hidden rounded-3xl',
+        'card-raised edge-light group/spot relative isolate overflow-hidden rounded-3xl',
         'transition-[transform,border-color,box-shadow] duration-500 ease-spring',
         'hover:-translate-y-1 hover:border-line-strong hover:shadow-floating',
         className,
@@ -58,7 +58,7 @@ export function SpotlightCard({
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 opacity-[var(--spot-opacity)] transition-opacity duration-500 ease-spring"
         style={{
-          background: `radial-gradient(${radius}px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(51,165,255,0.14), transparent 65%)`,
+          background: `radial-gradient(${radius}px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(255,90,54,0.14), transparent 65%)`,
         }}
       />
       {children}

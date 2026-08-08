@@ -24,7 +24,7 @@ export function About() {
           <RevealGroup className="space-y-6">
             {ABOUT.paragraphs.map((paragraph) => (
               <Reveal key={paragraph.slice(0, 32)} variants={fadeUp} as="div">
-                <p className="text-[15px] leading-[1.85] text-silver-muted sm:text-base">
+                <p className="text-[15px] leading-[1.85] text-ink-500 sm:text-base">
                   {paragraph}
                 </p>
               </Reveal>
@@ -34,10 +34,10 @@ export function About() {
               <div className="grid gap-4 sm:grid-cols-2">
                 {ABOUT.principles.map((principle) => (
                   <SpotlightCard key={principle.title} className="p-5" radius={280}>
-                    <h3 className="font-display text-[15px] tracking-[-0.02em] text-silver-bright">
+                    <h3 className="font-display text-[15px] tracking-[-0.02em] text-ink-900">
                       {principle.title}
                     </h3>
-                    <p className="mt-2 text-[13px] leading-[1.7] text-silver-muted">
+                    <p className="mt-2 text-[13px] leading-[1.7] text-ink-500">
                       {principle.body}
                     </p>
                   </SpotlightCard>
@@ -48,7 +48,7 @@ export function About() {
 
           {/* Portrait + facts */}
           <Reveal variants={slideInRight} className="lg:sticky lg:top-28 lg:self-start">
-            <div className="glass-floating edge-light relative overflow-hidden rounded-3xl">
+            <div className="card-floating edge-light relative overflow-hidden rounded-3xl">
               <div className="relative aspect-[4/5] overflow-hidden">
                 <Image
                   src="https://placehold.co/720x900/0B0F14/33A5FF/png?text=Portrait"
@@ -60,7 +60,7 @@ export function About() {
                 {/* Colour treatment + gradient scrim, per the image treatment rules. */}
                 <div
                   aria-hidden
-                  className="absolute inset-0 bg-electric/25 mix-blend-multiply"
+                  className="absolute inset-0 bg-coral/25 mix-blend-multiply"
                 />
                 <div
                   aria-hidden
@@ -69,13 +69,13 @@ export function About() {
               </div>
 
               <div className="relative p-6">
-                <p className="font-display text-lg tracking-[-0.02em] text-silver-bright">
+                <p className="font-display text-lg tracking-[-0.02em] text-ink-900">
                   {SITE.name}
                 </p>
-                <p className="mt-1 text-[13px] leading-relaxed text-silver-muted">{SITE.role}</p>
+                <p className="mt-1 text-[13px] leading-relaxed text-ink-500">{SITE.role}</p>
 
-                <div className="mt-5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-silver-dim">
-                  <MapPin aria-hidden className="size-3.5 text-electric-400" />
+                <div className="mt-5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-400">
+                  <MapPin aria-hidden className="size-3.5 text-coral-600" />
                   {SITE.location}
                 </div>
               </div>
@@ -97,13 +97,13 @@ export function About() {
               <p className="font-display text-4xl tracking-[-0.04em] text-gradient-accent">
                 <AnimatedCounter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
               </p>
-              <p className="mt-2 text-[13px] font-medium tracking-tight text-silver-bright">
+              <p className="mt-2 text-[13px] font-medium tracking-tight text-ink-900">
                 {stat.label}
               </p>
-              <p className="mt-1 text-[11px] leading-relaxed text-silver-dim">{stat.caption}</p>
+              <p className="mt-1 text-[11px] leading-relaxed text-ink-400">{stat.caption}</p>
               <span
                 aria-hidden
-                className="absolute inset-x-0 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-electric to-transparent transition-transform duration-500 ease-spring group-hover:scale-x-100"
+                className="absolute inset-x-0 bottom-0 h-px scale-x-0 bg-gradient-to-r from-transparent via-coral to-transparent transition-transform duration-500 ease-spring group-hover:scale-x-100"
               />
             </Reveal>
           ))}

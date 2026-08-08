@@ -48,16 +48,16 @@ export function Projects() {
                   className={cn(
                     'relative rounded-full border px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.12em]',
                     'transition-[color,border-color,transform] duration-300 ease-spring active:scale-[0.97]',
-                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral',
                     filter === category
-                      ? 'border-electric/50 text-electric-200'
-                      : 'border-line text-silver-dim hover:border-line-strong hover:text-silver',
+                      ? 'border-coral/50 text-coral-700'
+                      : 'border-line text-ink-400 hover:border-line-strong hover:text-ink-600',
                   )}
                 >
                   {filter === category ? (
                     <motion.span
                       layoutId="project-filter"
-                      className="absolute inset-0 -z-10 rounded-full bg-electric/10"
+                      className="absolute inset-0 -z-10 rounded-full bg-coral/10"
                       transition={{ type: 'spring', stiffness: 360, damping: 30 }}
                     />
                   ) : null}
@@ -88,7 +88,7 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
       <motion.article
         layout
         className={cn(
-          'glass-raised edge-light group relative flex h-full flex-col overflow-hidden rounded-3xl',
+          'card-raised edge-light group relative flex h-full flex-col overflow-hidden rounded-3xl',
           'transition-[transform,border-color,box-shadow] duration-500 ease-spring',
           'hover:-translate-y-1.5 hover:border-line-strong hover:shadow-floating',
         )}
@@ -102,7 +102,7 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 ease-spring group-hover:scale-[1.04]"
           />
-          <div aria-hidden className="absolute inset-0 bg-electric/20 mix-blend-multiply" />
+          <div aria-hidden className="absolute inset-0 bg-coral/20 mix-blend-multiply" />
           <div
             aria-hidden
             className="absolute inset-0 bg-gradient-to-t from-surface-raised via-surface-raised/20 to-transparent"
@@ -110,17 +110,17 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
           <div className="absolute left-5 top-5 flex gap-2">
             <Badge variant="accent">{project.category}</Badge>
           </div>
-          <span className="absolute right-5 top-5 font-mono text-[10px] tracking-[0.18em] text-silver-dim">
+          <span className="absolute right-5 top-5 font-mono text-[10px] tracking-[0.18em] text-ink-400">
             {project.year}
           </span>
         </div>
 
         <div className="flex flex-1 flex-col p-6">
-          <h3 className="font-display text-xl tracking-[-0.03em] text-silver-bright">
+          <h3 className="font-display text-xl tracking-[-0.03em] text-ink-900">
             {project.title}
           </h3>
-          <p className="mt-1.5 text-[13px] leading-relaxed text-electric-300">{project.tagline}</p>
-          <p className="mt-4 line-clamp-3 text-[13px] leading-[1.75] text-silver-muted">
+          <p className="mt-1.5 text-[13px] leading-relaxed text-coral-600">{project.tagline}</p>
+          <p className="mt-4 line-clamp-3 text-[13px] leading-[1.75] text-ink-500">
             {project.problem}
           </p>
 
@@ -137,7 +137,7 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
                         suffix={metric.suffix}
                       />
                     </span>
-                    <span className="ml-1.5 text-[11px] text-silver-dim">{metric.label}</span>
+                    <span className="ml-1.5 text-[11px] text-ink-400">{metric.label}</span>
                   </dd>
                 </div>
               ))}
@@ -148,13 +148,13 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
             {project.stack.slice(0, 5).map((tech) => (
               <li
                 key={tech}
-                className="rounded-md border border-line bg-white/[0.03] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.09em] text-silver-dim"
+                className="rounded-md border border-line bg-ink-50 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.09em] text-ink-400"
               >
                 {tech}
               </li>
             ))}
             {project.stack.length > 5 ? (
-              <li className="rounded-md px-2 py-1 font-mono text-[10px] tracking-[0.09em] text-silver-dim">
+              <li className="rounded-md px-2 py-1 font-mono text-[10px] tracking-[0.09em] text-ink-400">
                 +{project.stack.length - 5}
               </li>
             ) : null}
@@ -212,10 +212,10 @@ function ProjectDialog({
                 sizes="(max-width: 768px) 100vw, 768px"
                 className="object-cover"
               />
-              <div aria-hidden className="absolute inset-0 bg-electric/20 mix-blend-multiply" />
+              <div aria-hidden className="absolute inset-0 bg-coral/20 mix-blend-multiply" />
               <div
                 aria-hidden
-                className="absolute inset-0 bg-gradient-to-t from-surface-floating to-transparent"
+                className="absolute inset-0 bg-gradient-to-t from-surface-elevated to-transparent"
               />
             </div>
 
@@ -226,7 +226,7 @@ function ProjectDialog({
               </div>
 
               <DialogTitle className="mt-4">{project.title}</DialogTitle>
-              <DialogDescription className="mt-1.5 text-electric-300">
+              <DialogDescription className="mt-1.5 text-coral-600">
                 {project.tagline}
               </DialogDescription>
 
@@ -237,10 +237,10 @@ function ProjectDialog({
                 className="mt-8 grid gap-8 md:grid-cols-2"
               >
                 <Block title="Problem">
-                  <p className="text-[13px] leading-[1.8] text-silver-muted">{project.problem}</p>
+                  <p className="text-[13px] leading-[1.8] text-ink-500">{project.problem}</p>
                 </Block>
                 <Block title="Solution">
-                  <p className="text-[13px] leading-[1.8] text-silver-muted">{project.solution}</p>
+                  <p className="text-[13px] leading-[1.8] text-ink-500">{project.solution}</p>
                 </Block>
 
                 <Block title="Architecture">
@@ -248,9 +248,9 @@ function ProjectDialog({
                     {project.architecture.map((step, index) => (
                       <li
                         key={step}
-                        className="flex gap-3 text-[13px] leading-[1.7] text-silver-muted"
+                        className="flex gap-3 text-[13px] leading-[1.7] text-ink-500"
                       >
-                        <span className="font-mono text-[10px] leading-[1.9] text-electric-400">
+                        <span className="font-mono text-[10px] leading-[1.9] text-coral-600">
                           {String(index + 1).padStart(2, '0')}
                         </span>
                         <span>{step}</span>
@@ -264,11 +264,11 @@ function ProjectDialog({
                     {project.features.map((feature) => (
                       <li
                         key={feature}
-                        className="flex gap-2.5 text-[13px] leading-[1.7] text-silver-muted"
+                        className="flex gap-2.5 text-[13px] leading-[1.7] text-ink-500"
                       >
                         <span
                           aria-hidden
-                          className="mt-[0.6em] size-1 shrink-0 rounded-full bg-electric/60"
+                          className="mt-[0.6em] size-1 shrink-0 rounded-full bg-coral/60"
                         />
                         <span>{feature}</span>
                       </li>
@@ -281,7 +281,7 @@ function ProjectDialog({
                 <dl className="mt-8 grid grid-cols-2 gap-4 border-t border-line pt-6 sm:grid-cols-3">
                   {project.metrics.map((metric) => (
                     <div key={metric.label}>
-                      <dt className="text-[11px] leading-snug text-silver-dim">{metric.label}</dt>
+                      <dt className="text-[11px] leading-snug text-ink-400">{metric.label}</dt>
                       <dd className="mt-1 font-display text-2xl tracking-[-0.03em] text-gradient-accent">
                         <AnimatedCounter
                           value={metric.value}
@@ -295,7 +295,7 @@ function ProjectDialog({
               ) : null}
 
               <div className="mt-8 border-t border-line pt-6">
-                <h4 className="font-mono text-[11px] uppercase tracking-[0.2em] text-silver-dim">
+                <h4 className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-400">
                   Tech stack
                 </h4>
                 <ul className="mt-4 flex flex-wrap gap-1.5">
@@ -338,7 +338,7 @@ function ProjectDialog({
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h4 className="font-mono text-[11px] uppercase tracking-[0.2em] text-silver-dim">{title}</h4>
+      <h4 className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink-400">{title}</h4>
       <div className="mt-3">{children}</div>
     </section>
   );

@@ -44,13 +44,13 @@ export function Marquee({
                 key={`${copy}-${item}-${index}`}
                 aria-hidden={copy === 1}
                 className={cn(
-                  'inline-flex shrink-0 items-center gap-2 rounded-full border border-line bg-white/[0.03] px-4 py-2',
-                  'font-mono text-[11px] uppercase tracking-[0.14em] text-silver-muted',
-                  'transition-colors duration-300 ease-spring hover:border-electric/30 hover:text-electric-200',
+                  'inline-flex shrink-0 items-center gap-2 rounded-full border border-line bg-ink-50 px-4 py-2',
+                  'font-mono text-[11px] uppercase tracking-[0.14em] text-ink-500',
+                  'transition-colors duration-300 ease-spring hover:border-coral/30 hover:text-coral-700',
                   itemClassName,
                 )}
               >
-                <span aria-hidden className="size-1 rounded-full bg-electric/60" />
+                <span aria-hidden className="size-1 rounded-full bg-coral/60" />
                 {item}
               </span>
             ))}

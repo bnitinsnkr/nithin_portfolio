@@ -17,10 +17,10 @@ export default async function AppleIcon() {
           justifyContent: 'center',
           // Satori parses every layer of the `background` shorthand as an image,
           // so the base colour has to be set separately.
-          backgroundColor: '#05070A',
+          backgroundColor: '#FF5A36',
           backgroundImage:
-            'radial-gradient(140px 140px at 30% 0%, rgba(51,165,255,0.45), transparent 65%)',
-          color: '#E9EEF6',
+            'radial-gradient(180px 180px at 78% 100%, rgba(255,158,44,0.85), transparent 62%)',
+          color: '#FFFCF8',
           fontSize: 76,
           letterSpacing: -3,
         }}

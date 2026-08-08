@@ -45,19 +45,19 @@ export function Certifications() {
                   />
 
                   <div className="relative flex items-start justify-between gap-4">
-                    <span className="grid size-11 place-items-center rounded-2xl border border-line bg-white/[0.04] text-silver-bright">
+                    <span className="grid size-11 place-items-center rounded-2xl border border-line bg-ink-50 text-ink-900">
                       <Icon aria-hidden className="size-5" />
                     </span>
-                    <BadgeCheck aria-hidden className="size-4 text-electric-400" />
+                    <BadgeCheck aria-hidden className="size-4 text-coral-600" />
                   </div>
 
-                  <h3 className="relative mt-5 font-display text-base leading-snug tracking-[-0.02em] text-silver-bright">
+                  <h3 className="relative mt-5 font-display text-base leading-snug tracking-[-0.02em] text-ink-900">
                     {certification.name}
                   </h3>
 
                   <div className="relative mt-4 flex items-center justify-between border-t border-line pt-4">
-                    <span className="text-[12px] text-silver-muted">{certification.issuer}</span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-electric-300">
+                    <span className="text-[12px] text-ink-500">{certification.issuer}</span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-coral-600">
                       {certification.level}
                     </span>
                   </div>
@@ -70,16 +70,16 @@ export function Certifications() {
           <Reveal variants={scaleIn} className="h-full">
             <SpotlightCard className="flex h-full flex-col justify-between p-6">
               <div>
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-silver-dim">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-400">
                   Education
                 </span>
-                <h3 className="mt-4 font-display text-base leading-snug tracking-[-0.02em] text-silver-bright">
+                <h3 className="mt-4 font-display text-base leading-snug tracking-[-0.02em] text-ink-900">
                   M.S., Big Data Analytics &amp; Information Technology
                 </h3>
               </div>
               <div className="mt-5 flex items-center justify-between border-t border-line pt-4">
-                <span className="text-[12px] text-silver-muted">University of Central Missouri</span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-electric-300">
+                <span className="text-[12px] text-ink-500">University of Central Missouri</span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-coral-600">
                   2025
                 </span>
               </div>
